@@ -1,0 +1,24 @@
+=====
+TIPS:
+=====
+
+* First of all install VS code.
+
+* Then in vs code, we will install some useful extensions which makes our development much easier.
+
+* There are many extensions in such a bulk amount, but we will install some common & useful
+  extensions first.
+
+================================
+MOST COMMON & USEFUL EXTENSIONS:
+================================
+
+1) Babel Javascript (Provides intellisence and make keywords colorful).
+
+2) Javascript es6 code snippets (Provides shortcuts of snippet codes structure).
+
+3) VScode Icons (Provides icon to every file).
+
+4) Bracket Highlighter (Highlights the body of functions and statements).
+
+5) Auto Rename Tag (Helps to rename tag automatically).
