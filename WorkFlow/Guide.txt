@@ -1,0 +1,52 @@
+==========================
+WORK FLOW OF REACT JS APP:
+==========================
+
+* Index.js (Entry Point) => Inside "src" folder. 
+
+* Index.html (Render/Display HTML) => Inside "public" folder.
+
+* App.js (Component) => Inside "src" folder.
+
+* Index.js file will be executed first when the react app is run.
+
+* Index.js takes data from App.js or from any other component and then render it on index.html.
+
+* Note: In index.js we have this code:
+  root.render(
+  <React.StrictMode>
+  <App/> (This App tag refers App.js component, calling App.js component in index.js)
+  </React.StrictMode>
+  );
+
+* We are calling App.js in Index.js by calling <App/> tag but inside the root body.
+  And this root is the id of div element existing in Index.html.
+
+* In index.html, we have empty div like this: 
+  <div id="root"> </div>
+
+* Now, create new component inside "src" folder named User.js, make function of same name:
+  function User()
+  {
+    return(
+     <div className="App">
+      <h1> Welcome Usman! </h1>
+     </div>
+    );
+  }
+ export default User;
+
+* In index.js:
+  root.render(
+  <React.StrictMode>
+  <User/>
+  </React.StrictMode>
+  );
+
+* Note: Before importing component in index.js, must give location of the component file.
+  import User from "./User";
+
+* React renders HTML to the web page by using a function called ReactDOM.render() .
+
+* The purpose of the function is to display the specified HTML code inside the
+  specified HTML element.
