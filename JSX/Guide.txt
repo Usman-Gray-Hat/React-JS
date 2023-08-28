@@ -22,7 +22,7 @@ INTRODUCTION:
 * JSX is an extension of the JavaScript language based on ES6, and is translated into regular
   JavaScript at runtime.
 
-* With JSX you can write expressions inside curly braces {}.
+* With JSX you can write expressions inside the curly braces {}.
 
 * The expressions can be a React variable, property, object or any other valid JavaScript expression.
   JSX will execute the expression and return the result.
@@ -49,7 +49,7 @@ EXPRESSIONS IN JSX:
     );
   }
 
-* Note: Not just expressions or variables, you can also call/pass object using curly brackets.
+* Note: Not just expressions or variables, you can also call/pass object by using the curly brackets.
   Here how you can do this:
 
 * In Component file (Demo.js):
@@ -164,7 +164,7 @@ IMPORTANT POINTS:
 
 * Use className keyword in camel casing.
 
-* For attribute is replace with htmlFor.
+* "For" attribute is replace with "htmlFor".
 
 * Alternatively for if else statement, you can use ternary expressions inside JSX.
   Here how you can do this:
