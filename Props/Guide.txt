@@ -1,0 +1,190 @@
+===============
+PROPS IN REACT:
+===============
+
+* Props stands for properties.
+
+* Props are arguments passed into React components.
+
+* Props are passed to components via HTML attributes.
+
+* React Props are like function arguments in JavaScript and attributes in HTML.
+
+* To send props into a component, use the same syntax as HTML attributes.
+
+* Props are act like an object.
+
+=========================
+PRACTICAL IMPLEMENTATION:
+=========================
+
+* In Message.js
+  import React from 'react';
+  function myFunction(props) {
+      return (
+          <>
+              <h1>My name is {props.name} </h1>
+              <h1>My age is {props.age} </h1>
+              <h1>My salary is {props.salary} </h1>
+          </>
+      );
+  }
+  export default myFunction;
+
+* In index.js
+  import React from 'react';
+  import ReactDOM from 'react-dom/client';
+  import './index.css';
+  import App from './App';
+  import Message from './Message';
+  import reportWebVitals from './reportWebVitals';
+
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(
+    <React.StrictMode>
+      <>
+        <Message name="Usman" age="24" salary="120000" />
+        <Message name="Bilal" age="25" salary="100000" />
+        <Message name="Zain" age="23" salary="90000" />
+      </>
+    </React.StrictMode>
+  );
+
+
+* Note: If you have a variable to send and not a string, you just put the variable name
+        inside the curly brackets. Or you can simple use curly brackets to pass integer
+        values.
+
+========
+EXAMPLE:
+========
+
+* In Message.js
+  import React from 'react';
+  function myFunction(props) {
+      return (
+          <>
+              <h1>My name is {props.name} </h1>
+              <h1>My age is {props.age} </h1>
+              <h1>My salary is {props.salary} </h1>
+          </>
+      );
+  }
+  export default myFunction;
+
+* In index.js
+  import React from 'react';
+  import ReactDOM from 'react-dom/client';
+  import './index.css';
+  import App from './App';
+  import Message from './Message';
+  import reportWebVitals from './reportWebVitals';
+
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  let a = "Usman Hameed";
+  let b = 120000;
+  root.render(
+    <React.StrictMode>
+      <>
+        <Message name={a} age={24} salary={b} />
+      </>
+    </React.StrictMode>
+  );
+
+* React props are read-only (immutable). You will get an error if you try to
+  change their value.
+
+* Props can be used as Children Props. You need to use pair tag instead of self closing tag
+  and then access children props by using 'children' keyword.
+
+========
+EXAMPLE:
+========
+
+* In Message.js
+  import React from 'react';
+  function myFunction(props) {
+      return (
+          <>
+              <h1>My name is {props.name} </h1>
+              <h1>My age is {props.age} </h1>
+              <h1>My salary is {props.salary} </h1>
+              {props.children}
+          </>
+      );
+  }
+  export default myFunction;
+
+* In index.js
+  import React from 'react';
+  import ReactDOM from 'react-dom/client';
+  import './index.css';
+  import App from './App';
+  import Message from './Message';
+  import reportWebVitals from './reportWebVitals';
+
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  let a = "Usman Hameed";
+  let b = 24;
+  let c = 120000;
+  root.render(
+    <React.StrictMode>
+      <>
+        <Message name={a} age={b} salary={c}>
+          <h3> Children 1 </h3>
+        </Message>
+
+        <Message name="Bilal" age="25" salary="100000">
+          <button type='button' id='btn'>Click</button>
+        </Message>
+
+        <Message name="Zain" age="23" salary="90000" >
+          <h3> Children 3</h3>
+        </Message>
+      </>
+    </React.StrictMode>
+  );
+
+==========
+PASS DATA:
+==========
+
+* Props are also how you pass data from one component to another component as parameters.
+
+=========================
+PRACTICAL IMPLEMENTATION:
+=========================
+
+* Create two component files.
+  1) House.js
+  2) Person.js
+
+* In House.js
+  import React from 'react';
+  import Person from './Person';
+  function House() {
+      return (
+          <Person name="Usman Hameed" />
+      );
+  }
+  export default House;
+
+* In Person.js
+  import React from 'react';
+  function Person(props) {
+      return (
+          <h1> {props.name} lives here.! </h1>
+      );
+  }
+  export default Person;
+
+* In index.js
+  import React from 'react';
+  import ReactDOM from 'react-dom/client';
+  import App from './App';
+  import House from './House';
+
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(
+    <House />
+  );
