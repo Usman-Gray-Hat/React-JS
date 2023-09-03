@@ -1,9 +1,0 @@
-import React from 'react';
-function myFooter() {
-    return (
-        <div>
-            <h1> This is my Footer </h1>
-        </div>
-    );
-}
-export default myFooter;
