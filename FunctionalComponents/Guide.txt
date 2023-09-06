@@ -1,0 +1,183 @@
+=================
+REACT COMPONENTS:
+=================
+
+* Components are independent and reusable pieces of code.
+
+* They serve the same purpose as JavaScript functions, but work in isolation and return HTML.
+
+* Components come in two types:
+
+1. Class Components
+2. Functional Components.
+
+* But in this lecture, we will concentrate on Function components.
+
+======================
+FUNCTIONAL COMPONENTS:
+======================
+
+* Components are like functions that return HTML elements.
+
+* In older React code bases, you may find Class components primarily used.
+
+* It is now suggested to use Function components, which were added in React 16.8.
+
+=========================
+PRACTICAL IMPLEMENTATION:
+=========================
+
+=> Right click on src folder -> create new file named as Header.js
+
+=> In Header.js
+   import React from 'react';
+   function myHeader() {
+       return (
+           <div>
+               <h1>This is my Header</h1>
+           </div>
+       );
+   }
+   export default myHeader;
+
+
+=> Right click on src folder -> create new file named as Sidebar.js
+
+=> In Sidebar.js
+   import React from 'react';
+   function mySidebar() {
+       return (
+           <div>
+               <h1>This is my Sidebar</h1>
+           </div>
+       );
+   }
+   export default mySidebar;
+
+
+=> Right click on src folder -> create new file named as Footer.js
+
+=> In Footer.js
+   import React from 'react';
+   function myFooter() {
+       return (
+           <div>
+               <h1>This is my Footer</h1>
+           </div>
+       );
+   }
+   export default myFooter;
+
+* Note: Now, we have three components, let's render these components into specified HTML element.
+
+=> In index.html
+   <div id="root"> </div>
+
+=> In index.js
+   import React from 'react';
+   import ReactDOM from 'react-dom/client';
+   import './index.css';
+   import App from './App';
+   import Header from './Header';
+   import Sidebar from './Sidebar';
+   import Footer from './Footer';
+   import reportWebVitals from './reportWebVitals';
+
+   const root = ReactDOM.createRoot(document.getElementById('root'));
+   root.render(
+     <>
+       <Header/>
+       <Sidebar/>
+       <Footer/>
+       </>
+   );
+
+* Note: Since we know that index.js is entry point of our React app. So, for making index.js file light weighted,
+  we can use much recommended approach which is to return all our components in "App function" that exists inside
+  "App.js" file which is a Default component of React application and then render App.js in index.js file.
+  In this way index.js will become much light weighted.
+
+=========================
+PRACTICAL IMPLEMENTATION:
+=========================
+
+=> Right click on src folder -> create new file named as Header.js
+
+=> In Header.js
+   import React from 'react';
+   function myHeader() {
+       return (
+           <div>
+               <h1>This is my Header</h1>
+           </div>
+       );
+   }
+   export default myHeader;
+
+
+=> Right click on src folder -> create new file named as Sidebar.js
+
+=> In Sidebar.js
+   import React from 'react';
+   function mySidebar() {
+       return (
+           <div>
+               <h1>This is my Sidebar</h1>
+           </div>
+       );
+   }
+   export default mySidebar;
+
+
+=> Right click on src folder -> create new file named as Footer.js
+
+=> In Footer.js
+   import React from 'react';
+   function myFooter() {
+       return (
+           <div>
+               <h1>This is my Footer</h1>
+           </div>
+       );
+   }
+   export default myFooter;
+
+* Note: Now, we have three components, let's return these components in "App function" that exists inside "App.js" file.
+
+  In App.js
+  import Header from './Header';
+  import Sidebar from './Sidebar';
+  import Footer from './Footer';
+
+  function App() {
+    return (
+       <>
+        <Header/>
+        <Sidebar/>
+        <Footer/>
+       </>      
+    );
+  }
+  export default App;
+
+* Note: We have returned all our components in App.js, now let's render App.js component in index.js.
+
+=> In index.js
+   import React from 'react';
+   import ReactDOM from 'react-dom/client';
+   import './index.css';
+   import App from './App';
+   import reportWebVitals from './reportWebVitals';
+
+   const root = ReactDOM.createRoot(document.getElementById('root'));
+   root.render(
+     <App/>
+   );
+
+* Important Points: Doesn't matter how many components you make, but make sure to import react module 
+  from node_modules folder and write import line inside each & every component file at the top.
+  import React from 'react';
+
+* JSX code compile properly because of react module as react supports JSX.
+
+* Only 1 default export is allowed per module/component. So, make only one function in each component.

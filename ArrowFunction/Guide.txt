@@ -1,0 +1,53 @@
+=============
+INTRODUCTION:
+=============
+
+* Arrow function allows us to write shorter function syntax.
+
+* It gets even shorter if the function has only one statement, and the statement returns a value,
+  then you can remove the brackets and the return keyword.
+
+* Normal Function Syntax:
+  function User() {
+   return (
+     <h1> Hello World! </h1>
+   );
+  }
+
+* Arrow Function Syntax:
+  const User = () => <h1> Hello World! </h1>
+
+* If you have multiple lines of statements then use curly brackets and return keyword as well.
+  const User = () => {
+   return (
+     <>
+     <h1> Usman </h1>
+     <h1> Bilal </h1>
+     <h1> Ashir </h1>
+     </>
+   );
+  }
+
+* You can also create arrow function with parameters.
+
+* App.js:
+  import React from 'react';
+  import logo from './logo.svg';
+  import './App.css';
+
+  const App = (prop) => <h1> Name is {prop.name} </h1>
+  export default App;
+
+
+* Index.js:
+  import React from 'react';
+  import ReactDOM from 'react-dom/client';
+  import './index.css';
+  import App from './App';
+
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(
+    <App name="Usman Hameed" />
+  );
+
+* Arrow function were introduced in ES6.
