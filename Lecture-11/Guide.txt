@@ -1,0 +1,185 @@
+============================
+PROPS WITH CLASS COMPONENTS:
+============================
+
+* Props (properties) receives data & then pass it to the class component.
+~ Example: (Data -> Props -> Class Component)
+
+* There is a way of handling component properties is by using props.
+
+* In a class-based components, props are accessible via "this.props" keyword.
+
+* Send props into the class component as attributes and access them via "this.props" keyword.
+
+* Note: In functional-based component, you may access properties via any Alias name
+  like props, prop, prop1, or even any name, but in class-based components, you can
+  only access properties via "this.props" keyword. 
+
+=========================
+PRACTICAL IMPLEMENTATION:
+=========================
+
+* Right click on "src folder" -> create new file named "MyCass.js".
+//MyClass.js//
+import React, { Component } from 'react';
+class MyClass extends Component {
+    render() {
+        return (
+            <h1>My name is {this.props.name} and age is {this.props.age} </h1>
+        );
+    }
+}
+export default MyClass;
+
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import MyClass from './MyClass';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <>
+    <MyClass name="Usman Hameed" age="25" />
+    <MyClass name="Bilal Amir" age="26" />
+    <MyClass name="Zain Khawar" age="24" />
+  </>
+);
+
+reportWebVitals();
+
+====================
+COMPONENTS IN FILES:
+====================
+
+* React is all about re-using code, and it can be smart to insert some of your components
+  in a separate files.
+
+* To do that, create a new file with a ".js" extension and put the code inside it.
+
+=========================
+PROPS IN CLASS COMPONENT:
+=========================
+
+* If you have a variable to send, and not a string. Then put the variable name inside
+  curly brackets.
+~ Example:
+
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import MyClass from './MyClass';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+let a = "Usman Hameed";
+let b = 25;
+let c = "usmanhameed1790@gmail.com";
+root.render(
+  <MyClass name={a} age={b} email={c} />
+);
+
+reportWebVitals();
+
+//MyClass.js//
+import React, { Component } from 'react';
+class MyClass extends Component {
+    render() {
+        return (
+            <h1>My name is {this.props.name} , age is {this.props.age} and email is {this.props.email} </h1>
+        );
+    }
+}
+export default MyClass;
+
+* Note: React props are read-only (immutable). You will get an error if you try to change their values.
+
+* Props can be used as Children Props.
+
+* In class components, Children Props can be accessed by using "this.props.children" keyword.
+
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import MyClass from './MyClass';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+let a = "Usman Hameed";
+let b = 25;
+let c = "usmanhameed1790@gmail.com";
+root.render(
+  <MyClass name={a} age={b} email={c} >
+    <h1>Children 1</h1>
+    <h2>Children 2</h2>
+    <h3>Children 3</h3>
+    <h4>Children 4</h4>
+    <h5>Children 5</h5>
+    <h6>Children 6</h6>
+  </MyClass>
+);
+
+reportWebVitals();
+
+//MyClass.js//
+import React, { Component } from 'react';
+class MyClass extends Component {
+    render() {
+        return (
+            <>
+                <h1> My name is {this.props.name} , age is {this.props.age} and email is {this.props.email} </h1>
+                <h2> Children Props: </h2>
+                <h3> {this.props.children} </h3>
+            </>
+        );
+    }
+}
+export default MyClass;
+
+* Props are also how you pass data from one component to another component.
+~ Example:
+
+//MyClass.js//
+import React, { Component } from 'react';
+class MyClass1 extends Component {
+    render() {
+        return (
+            <>
+                <h1> My name is {this.props.name} </h1>
+            </>
+        );
+    }
+}
+class MyClass2 extends Component {
+    render() {
+        return (
+            <>
+                <MyClass1 name="Usman Hameed" />
+            </>
+        );
+    }
+}
+export { MyClass1, MyClass2 };
+
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import {MyClass1, MyClass2} from './MyClass';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <>
+  <MyClass2 />
+  </>
+);
+
+reportWebVitals();
