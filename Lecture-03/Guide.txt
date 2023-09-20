@@ -1,0 +1,114 @@
+==========================
+WORK FLOW OF REACT JS APP:
+==========================
+
+* Index.js (Entry Point) => Inside "src" folder. 
+
+* Index.html (Render/Display HTML) => Inside "public" folder.
+
+* App.js (Component) => Inside "src" folder.
+
+* Index.js file will be executed first when the react app is run.
+
+* Index.js takes data from App.js or from any other component and then render it on index.html.
+
+* Note: In index.js we have this code:
+
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(
+  <React.StrictMode>
+  <App/> (Alias Name/Placholder/Variable Name)
+  </React.StrictMode>
+  );
+
+* Note: This App tag <App/> is the alias name or variable name of the location of App.js component,
+  and we are calling App.js component in index.js file by calling alias name within self closing tag.
+
+* Example:
+  import AliasName from './ComponentLocation';
+  import App from './App';
+
+  root.render(
+  <React.StrictMode>
+    <App/>
+  </React.StrictMode>
+  );
+
+* Note: You can write any name in place of "alias name", it is not necessary to write the alias name as same as
+  the component's name. But must keep 1st letter capital of Alias name to avoid error.
+
+* Example: 
+  import MyReactApp123 from './App';
+
+  root.render(
+  <React.StrictMode>
+    <MyReactApp123/>
+  </React.StrictMode>
+  );
+
+* Having same name for the alias name and component, prevents complication as it can make you remember the alias names very easily
+  because the assignment name of the alias name is as same as component's name. Therefore this approach is recommended. 
+
+* We are calling App.js in Index.js by using <App/> (Alias Name) but inside the render body.
+
+* We are using render method to the root id, and this root is the id of div element existing in Index.html.
+
+* In index.html, we have empty div like this: 
+  <div id="root"> </div>
+
+* Now, create new component inside "src" folder named User.js, make function of same name:
+  function User()
+  {
+    return(
+     <div className="App">
+      <h1> Welcome Usman! </h1>
+     </div>
+    );
+  }
+ export default User;
+
+* In index.js:
+  import User from './User';
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+
+  root.render(
+  <React.StrictMode>
+  <User/>
+  </React.StrictMode>
+  );
+
+* Note: For importing component in index.js, must give location of the component file.
+  import User from "./User";
+
+* React renders HTML to the web page by using a function called ReactDOM.render() .
+
+* The purpose of the function is to display the specified HTML code inside the
+  specified HTML element.
+
+==========
+WORK FLOW:
+==========
+
+* 1st Step: index.js will take data from the Component & let suppose we have a component named as 'User'.
+
+* 2nd Step: Then render the data into the specified HTML element through element id.
+
+=> User.js:
+   function myUser(){
+     return (
+      <h1> This is User. </h1>
+     );
+   }
+   export default myUser;
+
+=> index.html:
+   <div id="root"> </div>
+
+=> index.js:
+   import User from './User';
+   const root = ReactDOM.createRoot(document.getElementById('root'));
+   root.render(
+     <User/>
+   );
+
+* Note: Only 1 default export is allowed per component.
