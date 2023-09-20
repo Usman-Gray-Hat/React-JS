@@ -1,0 +1,122 @@
+=================================
+PROP TYPES WITH CLASS COMPONENTS:
+=================================
+
+* Props are basically an object, and the data can be stored in properties of the object.
+
+* Prop types are used to validate type-checking (Data type validation).
+
+* To install and add the dependency for PropTypes use this command:
+  npm install prop-types
+
+* You can check dependency's information on "package.json" file.
+
+* Then add import
+  import PropTypes from 'prop-types';
+
+* Shortcut for importing PropTypes line is to write "impt" and then press enter.
+
+* Note: To use shortcuts, install extension "ES7 React/Redux/GrapghQL".
+
+* To apply type checking on the props for a component, you have to use built-in
+  propTypes property which is included in 'prop-types' module.
+~ Example:
+
+ComponentName.propTypes = {
+ PropertyName: PropTypes.DataType,
+ PropertyName: PropTypes.DataType
+}
+
+App.propTypes = {
+  name: PropTypes.string, (Shortcut for PropTypes.string is 'pts').
+  age: PropTypes.number  (Shortcut for PropTypes.number is 'ptn').
+}
+
+================================
+DEFAULT PROP VALUES IN REACT JS:
+================================
+
+* You can add default values for the props by using defaultProps built-in property
+  in 'prop-types' modules.
+~ Example:
+
+  ComponentName.defaultProps = {
+   PropertyName: 'Your default value',
+  }
+
+* If a component receives the wrong type of props, it can lead to bugs and unexpected
+  errors in your app.
+
+* Since JavaScript does not have a built-in type-checking solution, many developers use
+  extensions such as TypeScript and Flow. However, React has an internal mechanism for
+  props validation called prop types.
+
+* We pass different types of information, such as integers, strings, arrays as props to
+  the components.
+
+* We can either create default props or pass the props directly as attributes of the components.
+
+* We passed props from outside a component and used them inside that component.
+
+* Note: Before React 15.5.0, propTypes are available in the React package, but in later
+        versions of React, you need to add a dependency to your project.
+
+=========================
+WIDE RANGE OF VALIDATORS:
+=========================
+
+* Proptypes.array,
+* Proptypes.bool,
+* Proptypes.func,
+* Proptypes.number,
+* Proptypes.object,
+* Proptypes.string,
+* Proptypes.symbol
+
+=========================
+PRACTICAL IMPLEMENTATION:
+==========================
+
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Human from './Human';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <>
+    <Human name="Usman Hameed" age={25} gender="Male" />
+    <Human name="Bilal Amir" age={26} gender="Male" />
+    <Human name="Rida Arshad" age={23} gender="Female" />
+  </>
+);
+
+reportWebVitals();
+
+//Human.js//
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
+
+class Human extends Component {
+    render() {
+        return (
+            <>
+                <h1> Name is {this.props.name} </h1>
+                <h1> Age is {this.props.age} </h1>
+                <h1> Gender is {this.props.gender} </h1>
+            </>
+        );
+    }
+}
+Human.propTypes = {
+    name: PropTypes.string,
+    age: PropTypes.number,
+    gender: PropTypes.string
+}
+Human.defaultProps = {
+    age: '18'
+}
+export default Human;
