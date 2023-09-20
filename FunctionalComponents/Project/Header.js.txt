@@ -1,9 +1,0 @@
-import React from 'react';
-function myHeader() {
-    return (
-        <div>
-            <h1> This is my Header </h1>
-        </div>
-    );
-}
-export default myHeader;
