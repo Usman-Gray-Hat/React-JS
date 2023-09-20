@@ -1,0 +1,109 @@
+=============
+INSTALLATION:
+=============
+
+* 1st Step: 
+-> Install VS Code & Extensions.
+
+
+* 2nd Step:
+-> Install Node JS & NPM. (NPM = Node Package Manager).
+
+-> NPM will be automatically installed after the installation of Node JS.
+
+-> Now, go to google, search node js, click on website: nodejs.org/en/
+
+-> Click on LTS Button. Now, it started downloading.
+
+-> Open downloaded file, click on next, Accept license, Click on next, Install. 
+
+-> After installing Node Js & NPM check the version of Node JS & NPM.
+
+-> In VS Code, Click on terminal -> New Terminal. 
+
+-> For Checking Node Js Version, type command "node -v" in your terminal.
+
+-> For Checking NPM Version, type command "npm -v" in your terminal.
+
+~  Note: You can type these commands in your command promt (cmd).
+
+
+* 3rd Step:
+-> Installing React Js From Vs Code Terminal.
+
+-> Before installing React Js, make folder named "ReactJs" so you can put all your project
+   files in this folder.
+
+-> Type command in Terminal: npm install -g create-react-app
+
+~  Note: -g stands for Globally.
+
+-> Check the version of "create-react-app" using command: create-react-app --version
+
+-> Creating React app by using command: create-react-app "App_Name"
+
+~  Note: For naming your React Application, you don't need to use double quotes "".
+
+-> In VS Code -> Click on file -> open folder -> Select "ReactJs" and open it in VS Code.
+
+-> Click on terminal -> Open new terminal -> Type Command: create-react-app new-app.
+
+-> Your app will be created when it shows Happy hacking! in terminal.
+
+~  Note: Always use small case letters in your react application name.
+
+================
+IMPORTANT ALERT:
+================ 
+
+-> If you face error that indicates running scripts is disabled on your system,
+   which preventing the execution of your application, this is likely due to the execution policy set in PowerShell,
+   which is a security feature designed to prevent the execution of potentially harmful scripts.
+
+-> To resolve this issue, you can change the execution policy to allow script execution. Here's how you can do it:
+
+-> [Open PowerShell as an administrator] Search for "PowerShell" in the Start menu,
+   right-click on "Windows PowerShell," and select "Run as administrator."
+
+-> Once PowerShell is open, you can check the current execution policy by running the following command:
+   Get-ExecutionPolicy
+
+-> The output will show one of the following values:
+
+a) Restricted: This is the default execution policy that prevents script execution.
+b) AllSigned: Scripts can run, but they must be signed by a trusted publisher.
+c) RemoteSigned: Local scripts can run without a signature, but scripts downloaded from the internet need to be signed.
+d) Unrestricted: Allows all scripts to run.
+
+-> To change the execution policy to "RemoteSigned" (recommended for most users), run the following command:
+   Set-ExecutionPolicy RemoteSigned
+
+-> You will be prompted to confirm the change. Type "Y" and press Enter.
+
+-> After the policy is set, you should be able to run your app without encountering the previous errors.
+
+-> All dependencies and packages will be stored in node_modules folder.
+
+-> All the information about dependencies is in package.jSon file.
+
+
+* 4th Step:
+-> Starting React App On Server
+
+-> Now, we will type command "Npm start" in terminal.
+
+-> It serves our react app on 3000 port number of localhost.
+
+-> Right click on "new-app" -> open in integrated terminal.
+
+-> Type command: npm start.
+
+-> It will redirect you to your browser and display React Js logo on 1st page.
+
+~  Note: If you want to display your desired text, then go to VS Code -> expand src folder
+   -> open index.js -> type <h1>Anything</h1> within root.render body.
+
+-> For Example: 
+   root.render(
+   <h1>My name is Usman Hameed</h1>
+   );
