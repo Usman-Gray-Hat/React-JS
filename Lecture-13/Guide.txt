@@ -1,0 +1,135 @@
+=============
+INTRODUCTION:
+=============
+
+* Constructor in react is prerequisite for state & hook concept.
+
+* Constructor is taken from JavaScript object oriented programming.
+
+* Constructor is a member of class just like properties & other functions.
+
+* Constructor is used to initialize the object.
+
+* Constructor automatically called when an object is created.
+
+* Note: You can use constructor only with class component and not with functional component.
+
+* Whenever you call class component in index.js like this: <Student /> the object gets created.
+
+* And when object gets created, then constructor automatically gets called.
+
+* As you know when we create class component, we must have to inherit it from parent class
+  which is Component class.
+
+* Component class has already contain its own constructor which is known as parent constructor.
+
+* In react, we can call parent constructor inside our child constructor by using 'super' keyword. 
+
+* Note: Remember! must use 'super' keyword at the very first line.
+
+=====================
+CONSTRUCTOR IN REACT:
+=====================
+
+* The constructor is a method used to initialize an object's state in a class.
+
+* It automatically called during the creation of an object of a class.
+
+* The concept of a constructor is the same in react.
+
+* If you don't initialize state and you don't bind methods, you don't need to implement a constructor
+  for your react component.
+
+* When you implement the constructor for a react component, you need to call super() method before 
+  any other statement.
+
+=========================
+PRACTICAL IMPLEMENTATION:
+=========================
+//Human.js//
+import React, { Component } from 'react';
+class Human extends Component {
+    constructor() {
+        super();
+        console.log("Hello! I am constructor");
+    }
+    render() {
+        return (
+            <>
+                <h1>This is Human component</h1>
+            </>
+        );
+    }
+}
+export default Human;
+
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Human from './Human';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <>
+    <Human /> {/* object gets created */}
+  </>
+);
+
+reportWebVitals();
+
+* You can see this message "Hello! I am constructor" in console of a web page.
+
+=================
+IMPORTANT POINTS:
+=================
+
+* If you are using props, then must call 'props' keyword inside the paranthesis of a constructor and super methods.
+
+* If you do not call super(props) method, 'this.props' will be undefined in the 'constructor' and can
+  lead to bugs. 
+
+* However you can still use 'this.props' keyword in render() method but for using 'this.props' keyword
+  inside constructor, you need to call 'props' inside the paranthesis of a constructor(props) and super(props) both,
+  otherwise it will be undefined inside constructor.
+
+~ Example:
+//Human.js//
+import React, { Component } from 'react';
+class Human extends Component {
+    constructor(props) {
+        super(props);
+        console.log("Name is " + this.props.name);
+        console.log("Age is " + this.props.age);
+    }
+    render() {
+        return (
+            <>
+                <h1> Name is {this.props.name} </h1>
+                <h1> Age is {this.props.age} </h1>
+            </>
+        );
+    }
+}
+export default Human;
+
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Human from './Human';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <>
+    <Human name="Usman Hameed" age={25} />
+    <Human name="Bilal Amir" age={26} />
+    <Human name="Zain Khawar" age={23} />
+  </>
+);
+
+reportWebVitals();
