@@ -1,0 +1,332 @@
+===============================
+INTRODUCTION TO STATE IN REACT:
+===============================
+
+* The state is a built-in react object that is used to contain data or information
+  about the component.
+
+* State created & managed within the component.
+
+* State are mutable/changeable.
+
+* You can use 'state concept' only with 'class component'.
+
+=========================
+PRACTICAL IMPLEMENTATION:
+=========================
+//Students.js//
+import React, { Component } from 'react';
+class Students extends Component {
+    constructor() {
+        super();
+        this.state = {
+            name: "Usman",
+            age: 25,
+            email: "usmanhameed1790@gmail.com"
+        }
+    }
+    render() {
+        return (
+            <>
+                <h1> Name is {this.state.name} </h1>
+                <h1> Age is {this.state.age} </h1>
+                <h1> Email is {this.state.email} </h1>
+            </>
+        );
+    }
+}
+export default Students;
+
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Students from './Students';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Students />
+);
+
+reportWebVitals();
+
+
+* Note: When you change, update or modify your state then your component gets Re-Render.
+
+* You can change or modify your state with the help of setState method with 'this' keyword.
+
+=========================
+PRACTICAL IMPLEMENTATION:
+=========================
+//Students.js//
+import React, { Component } from 'react';
+class Students extends Component {
+    constructor() {
+        super();
+        this.state = {
+            name: "Usman",
+            age: 25,
+            email: "usmanhameed@gmail.com"
+        }
+    }
+
+    updateInfo() {
+        this.setState({
+            name: "Usman Hameed",
+            age: 27,
+            email: "usmanhameed1790@gmail.com"
+        });
+    }
+
+    render() {
+        return (
+            <>
+                <h1> Name is {this.state.name} </h1>
+                <h1> Age is {this.state.age} </h1>
+                <h1> Email is {this.state.email} </h1>
+                <input type="button" value="Update Information" onClick={() => this.updateInfo()} />
+            </>
+        );
+    }
+}
+export default Students;
+
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Students from './Students';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Students />
+);
+
+reportWebVitals();
+
+
+* Note: You can also implement incrementation or decrementation using setState method. 
+
+=========================
+PRACTICAL IMPLEMENTATION:
+=========================
+//Students.js//
+import React, { Component } from 'react';
+class Students extends Component {
+    constructor() {
+        super();
+        this.state = {
+            number: 1
+        }
+    }
+
+    updateInfo() {
+        this.setState({
+            number: this.state.number + 1
+        });
+    }
+
+    render() {
+        return (
+            <>
+                <h1> {this.state.number} </h1>
+                <input type="button" value="Update Information" onClick={() => this.updateInfo()} />
+            </>
+        );
+    }
+}
+export default Students;
+
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Students from './Students';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Students />
+);
+
+reportWebVitals();
+
+==================
+STATE IN REACT JS:
+==================
+
+* A component's state can change over time, whenever it changes, the component re-renders.
+
+* The change in state can happen as a response to user action or system-generated events
+  and these changes determine the behaviour of the component and how it will render.
+
+* Constructor is used to initialize the object's state.
+~ Example:
+  class MyComponent extends Component {
+    constructor() {
+      super();
+      this.state = {
+        count: 0
+      }
+    }
+
+* In the above code, the constructor is used to initialize the count state 
+  variable to 0 when an instance of MyComponent is created. And the instance
+  of MyComponent will be created in index.js file like this <MyComponent />
+
+=================================
+IMPORTANT POINTS REGARDING STATE:
+=================================
+
+* State is similar to props, but it is private and fully controlled by the component.
+
+* We can create state only in class component.
+
+* It is possible to update the state.
+
+* A state can be modified based on user action or network changes.
+
+* Every time the state of an object changes, React re-renders the component
+  to the browser.
+
+* The state object is initialized in the constructor.
+
+* The state object can store multiple properties. 
+
+* We can update state on a button click.
+
+* this.setState() is used to change the value of the state object.
+
+* We can set props data into state. 
+
+* As we know that props are immutable & can't be changed, however you can use 
+  an alternative approach by storing props into state and then can change the
+  value of state.
+
+=========================
+PRACTICAL IMPLEMENTATION:
+=========================
+//Students.js//
+import React, { Component } from 'react';
+class Students extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: this.props.name,
+            age: this.props.age,
+            email: this.props.email
+        }
+    }
+
+    updateInfo() {
+        this.setState({
+            name: "Usman Hameed",
+            age: 27,
+            email: "usmanhameed1790@gmail.com"
+        });
+    }
+
+    render() {
+        return (
+            <>
+                <h1> Name is {this.state.name} </h1>
+                <h1> Age is {this.state.age} </h1>
+                <h1> Email is {this.state.email} </h1>
+                <input type="button" value="Update Information" onClick={() => this.updateInfo()} />
+            </>
+        );
+    }
+}
+export default Students;
+
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Students from './Students';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Students name="Usman" age={25} email="usmanhameed@1790@hotmail.com" />
+);
+
+reportWebVitals();
+
+* State can be updated in response to event handlers, server reponses or props changes,
+  this is done using the setState() method.
+
+* The setState() method enqueues all of the updates made to the component state and instructs
+  React to re-render the component and its children with the updated state.
+
+* Always use the setState() method to change the state object, since it will ensure that the
+  component knows it's been updated and calls the render() method.
+
+* There are two ways of initializing the state.
+1. With Constructor
+2. Without Constructor
+
+~ For Without Constructor:
+//Students.js//
+import React, { Component } from 'react';
+class Students extends Component {
+    state = {
+        name: "Usman",
+        age: 25,
+        email: "usmanhameed1790@hotmail.com"
+    }
+
+    updateInfo() {
+        this.setState({
+            name: "Usman Hameed",
+            age: 27,
+            email: "usmanhameed1790@gmail.com"
+        });
+    }
+
+    render() {
+        return (
+            <>
+                <h1> Name is {this.state.name} </h1>
+                <h1> Age is {this.state.age} </h1>
+                <h1> Email is {this.state.email} </h1>
+                <input type="button" value="Update Information" onClick={() => this.updateInfo()} />
+            </>
+        );
+    }
+}
+export default Students;
+
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Students from './Students';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Students />
+);
+
+reportWebVitals();
+
+====================================
+DIFFERENCES BETWEEN PROPS AND STATE:
+====================================
+------                                   ------
+PROPS:                                   STATE:
+------                                   ------ 
+* Props get passed to the component.     * State is created and managed within
+                                           the component.
+
+* Function parameters.                   * Variables.
+
+* Props are immutable/unchangeable.      * State are mutable/changeable.                     
