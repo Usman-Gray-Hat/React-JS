@@ -1,0 +1,248 @@
+==============
+DESTRUCTURING:
+==============
+
+* Destructuring is a characteristic of JavaScript, it is used to take out sections of data
+  from an array or objects, we can assign them to new variables created by the developer.
+
+* The concept of "Destructuring" was introduced in ES6. 
+
+* In destructuring, it does not change an array or any object, it makes a copy of the desired
+  object or array element by assigning them in its own new variables, later we can use this
+  new variable in React (Class or Functional) components.
+
+==================================
+DESTRUCTURING ARRAY IN JAVASCRIPT:
+==================================
+
+* Old way - Without using Destructuring concept.
+
+  const Students = ["Usman", "Ali", "Zain", "Bilal"];
+  const std1 = Students[0];
+  const std2 = Students[1];
+  const std3 = Students[2];
+  const std4 = Students[3];
+
+* With Destructure concept.
+
+  const Students = ["Usman", "Ali", "Zain", "Bilal"];
+  const [std1,std2,std3,std4] = Students;
+
+* Note: Now, the JavaScript compiler will automatically store the 0 index "Usman" into std1,
+  1st index "Ali" into std2, 2nd index "Zain" into std3 and 3rd index "Bilal" into std4.
+
+* Now, we will implement Destructure concept in React with Functional & Class components.
+
+============================================
+DESTRUCTURING PROPS IN FUNCTIONAL COMPONENT:
+============================================
+
+* In functional component, there are two ways to destructure props.
+--------
+1st Way:
+--------
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Student from './Student';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Student name="Usman Hameed" age={25} email="usmanhameed1790@gmail.com" />
+);
+
+reportWebVitals();
+
+//Student.js//
+import React from 'react';
+function Student({ name, age, email }) {
+    return (
+        <>
+            <h1> Your name is {name} </h1>
+            <h1> Your age is {age} </h1>
+            <h1> Your email is {email} </h1>
+        </>
+    );
+}
+export default Student;
+
+------------------------
+2nd Way - (Recommended):
+-------- ---------------
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Student from './Student';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Student name="Usman Hameed" age={25} email="usmanhameed1790@gmail.com" />
+);
+
+reportWebVitals();
+
+//Student.js//
+import React from 'react';
+function Student(props) {
+    let { name, age, email } = props;
+    return (
+        <>
+            <h1> Your name is {name} </h1>
+            <h1> Your age is {age} </h1>
+            <h1> Your email is {email} </h1>
+        </>
+    );
+}
+export default Student;
+
+* 2nd way is recommended because this technique also implements on class component.
+
+* Note: Your parameters/variables name should be as same as the attribute name otherwise it won't
+  show you a result.
+
+~ Example 01: (Correct)
+  <Student name="Usman Hameed" age={25} email="usmanhameed1790@gmail.com" />
+  function({ name, age, email }) {
+  }
+
+~ Example 02: (Incorrect)
+  <Student name="Usman Hameed" age={25} email="usmanhameed1790@gmail.com" />
+  function({ a, b, c }) {
+  }
+
+~ Example 03: (Correct)
+  <Student name="Usman Hameed" age={25} email="usmanhameed1790@gmail.com" />
+  function(props) {
+    let { name, age, email } = props;
+  }
+
+~ Example 04: (Incorrect)
+  <Student name="Usman Hameed" age={25} email="usmanhameed1790@gmail.com" />
+  function(props) {
+    let { a, b, c } = props;
+  }
+
+=======================================
+DESTRUCTURING PROPS IN CLASS COMPONENT:
+=======================================
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Student from './Student';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Student name="Usman Hameed" age={25} email="usmanhameed1790@gmail.com" />
+);
+
+reportWebVitals();
+
+//Student.js//
+import React, { Component } from 'react';
+class Student extends Component {
+    render() {
+        let { name, age, email } = this.props;
+        return (
+            <>
+                <h1> Your name is {name} </h1>
+                <h1> Your age is {age} </h1>
+                <h1> Your email is {email} </h1>
+            </>
+        );
+    }
+}
+export default Student;
+
+
+* Note: Your variables name should be as same as the attribute name otherwise it won't
+  show you a result.
+
+~ Example 01: (Correct)
+  <Student name="Usman Hameed" age={25} email="usmanhameed1790@gmail.com" />
+  class Student extends Component {
+    render() {
+      let { name, age, email } = this.props;
+      return(
+      );
+    }
+  }
+
+~ Example 02: (Incorrect)
+  <Student name="Usman Hameed" age={25} email="usmanhameed1790@gmail.com" />
+  class Student extends Component {
+    render() {
+      let { a, b, c } = this.props;
+      return(
+      );
+    }
+  }
+
+====================
+DESTRUCTURING STATE:
+====================
+//Student.js//
+import React, { Component } from 'react';
+class Student extends Component {
+    constructor() {
+        super();
+        this.state = {
+            name: "Usman Hameed",
+            age: 25,
+            email: "usmanhameed1790@gmail.com"
+        }
+    }
+    render() {
+        let { name, age, email } = this.state;
+        return (
+            <>
+                <h1> Your name is {name} </h1>
+                <h1> Your age is {age} </h1>
+                <h1> Your email is {email} </h1>
+            </>
+        );
+    }
+}
+export default Student;
+
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Student from './Student';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Student />
+);
+
+reportWebVitals();
+
+* Note: Your variables name should be as same as state's property name otherwise it won't
+  show you a result.
+
+============================
+ADVANTAGES OF DESTRUCTURING:
+============================
+
+* It makes developer's life easy, by assigning their own variables.
+
+* It improves the sustainability and readability of code.
+
+* It helps to cut the amount of code used in as application.
+
+* It trims the number of steps taken to access data properties.
+
+* It provides component with the exact data property.
+
+* It saves time from iterate over an array of objects multiple times.
