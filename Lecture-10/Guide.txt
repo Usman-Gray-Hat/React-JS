@@ -104,7 +104,7 @@ function MyFunction() {
 
 export { MyClass, MyFunction };
 
-//inde.js//
+//index.js//
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
