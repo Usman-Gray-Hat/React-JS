@@ -1,0 +1,212 @@
+===========
+OBJECTIVES:
+===========
+* What Are Events?
+
+* What Is Event Handler & Event Handling.
+
+* Event Handling With Functional Component.
+
+* Event Handling With Class Component.
+
+* Passing Arguments To Event Handler.
+
+* Passing Props As Arguments To Event Handler.
+
+======
+EVENT:
+======
+
+* Events are actions or occurences that happen in the system you are programming,
+  which the system tells you about so your code can react to them. 
+
+* Events fired or generated, in response to a specific actions performed by
+  a user of the website. 
+
+* Any user's actions that a web page can respond to, are called "Events".
+
+* Most often user of a website generates event.
+
+* An event represents the precise moment when something happens, like 
+  moving a mouse over an element or click on button or any element.
+
+* And the action/operation, that generates right after the event has triggered
+  is called "Event Handler".
+
+* And the whole process, of clicking on a button and generating the response is
+  called "Event Handling."
+
+=========================================
+EVENT HANDLING WITH FUNCTIONAL COMPONENT:
+=========================================
+//Event.js//
+import React from 'react';
+function Event() {
+    function showMessage() {
+        alert("Hello");
+    }
+    return (
+        <input type="button" value="Click" onClick={showMessage} />
+    );
+}
+export default Event;
+
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Event from './Event';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Event />
+);
+
+reportWebVitals();
+
+=================
+IMPORTANT POINTS:
+=================
+
+* In modern JavaScript, you can use function inside another function.
+
+* React events are written in camelCasing syntax:
+  Write 'onClick' instead of 'onclick'.
+
+* React event handlers are written inside curly braces:
+  Write onClick={shoot} instead of onClick="shoot()".
+
+* Don't give paranthesis after the function name inside onClick event,
+  other wise the function would call & execute before click on the button.
+
+* Use 'function' keyword, when working with a Functional component or when creating a custom 
+  function 'inside' of the Render() method in class component.
+
+* Don't use 'function' keyword, when creating a custom function 'outside' of the Render() method,
+  in Class component.
+
+* Outside of the Render() method, write "myFunction() { }" instead of "function myFuntion() { }".
+
+* Don't use 'var', 'let', 'const' keywords when creating an Arrow Function 'outside' of the 
+  Render() method, in Class component.
+
+* Outside of the Render() method, write "myFunction = () => { }" instead of "let myFunction = () => { }". 
+
+* It is necessary to use 'function' keyword when creating a normal function 'inside' the Render() method,
+  which is a member function of a Parent class.
+
+* It is necessary to use 'var', 'let', 'const' keywords when creating an Arrow Function 'inside'
+  the Render() method, which is a member function of a Parent class.
+
+* You can create your custom function in class component both ways, 'inside' and 'outside'
+  of the Render() method.
+
+* Use 'this' keyword, when calling a custom function from 'outside' of the Render() method,
+  in Class component.
+
+* Don't use 'this' keyword, when calling a custom function from 'inside' of the Render() method,
+  in Class component. 
+
+====================================
+EVENT HANDLING WITH CLASS COMPONENT:
+====================================
+//Event.js//
+import React, { Component } from 'react';
+class Event extends Component {
+    showMessage() {
+        alert("Hello");
+    }
+    render() {
+        return (
+            <input type="button" value="Click" onClick={this.showMessage} />
+        );
+    }
+}
+export default Event;
+
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Event from './Event';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Event />
+);
+
+reportWebVitals();
+
+===================================
+PASSING ARGUMENTS TO EVENT HANDLER:
+===================================
+
+* To pass an argument to an event handler, always call a function with "Arrow Function" syntax.
+
+//Event.js//
+import React, { Component } from 'react';
+class Event extends Component {
+    render() {
+        showMessage(name) {
+            alert("Hello " + name);
+        }
+        return (
+            <input type="button" value="Click" onClick={ () => showMessage('Usman') } />
+        );
+    }
+}
+export default Event;
+
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Event from './Event';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Event />
+);
+
+reportWebVitals();
+
+=============================================
+PASSING PROPS AS ARGUMENTS TO EVENT HANDLERS:
+=============================================
+//index.js//
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import Event from './Event';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <Event name="Usman Hameed" age={25} />
+);
+
+reportWebVitals();
+
+//Event.js//
+import React, { Component } from 'react';
+class Event extends Component {
+    render() {
+        const showMessage = (StudentName, StudentAge) => {
+            alert("Student name is " + StudentName);
+            alert("Student age is " + StudentAge);
+        }
+        return (
+            <input type="button" value="Click" onClick={() => showMessage(this.props.name, this.props.age)} />
+        );
+    }
+}
+export default Event;
+
+* You can also pass 'state properties' to event handlers in a similar way like props.
